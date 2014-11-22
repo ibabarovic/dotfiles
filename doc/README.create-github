@@ -37,3 +37,9 @@ git remote set-url origin ssh://git@github.com/ibabarovic/dotfiles.git
 
 That required creating a key and importing it into a github account:
 https://help.github.com/articles/generating-ssh-keys/
+That also requires creating section under .ssh/config just for github:
+------------------------
+Host github github.com
+Hostname github.com
+IdentityFile /home/user/.ssh/id_rsa_github
+-----------------------
