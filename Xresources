@@ -1,0 +1,189 @@
+! To reread your .Xresources file, and keep your old resources: 
+! xrdb ~/.Xresources
+
+! Cheat sheet https://wiki.archlinux.org/index.php/X_resources#Basic_syntax
+! Xcursor --------------------------------------------------------------------
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size:  22
+
+! xpdf -----------------------------------------------------------------------
+xpdf*enableFreetype:    yes
+xpdf*antialias:         yes
+xpdf*foreground:        black
+xpdf*background:        white
+xpdf*urlCommand:        /usr/bin/firefox %s
+
+
+!/*********************************************************************
+! *                           URxvt options                           *
+! *********************************************************************/
+URxvt*scrollBar:         false
+URxvt*title:             urxvt
+!-- Xft settings -- !
+Xft.dpi:        96
+xXft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+!URxvt*font:              xft:Menlo-Powerline:pixelsize=10:antialias=true:hinting=true
+!URxvt*boldFont:          xft:Menlo-Powerline:pixelsize=10:bold:antialias=true:hinting=true
+! This might help with spacing for some fonts
+!URxvt.letterSpace: -4
+URxvt*font:              xft:Inconsolata for Powerline:pixelsize=14
+URxvt*boldFont:          xft:Inconsolata for Powerline:pixelsize=14:bold
+!URxvt*font:              xft:Inconsolata:pixelsize=12
+!URxvt*boldFont:          xft:Inconsolata:pixelsize=12:bold
+!URxvt*font:              xft:Ubuntu Mono:pixelsize=14,style=regular
+!URxvt*boldFont:          xft:Ubuntu Mono:pixelsize=14,style=regular
+!URxvt*font:              xft:terminus:pixelsize=8
+!URxvt*boldFont:          xft:terminus:pixelsize=8
+!URxvt*termName:           rxvt-unicode
+URxvt*termName:           rxvt-256color
+URxvt*foreground: #f2f2f2
+URxvt*background: #101010
+URxvt*allow_bold:        true
+URxvt*colorBD:           #31c8c6
+URxvt*colorUL:          #c0c445
+URxvt*internalBorder:    1
+URxvt.transparent:       false
+URxvt*dynamicColors:     on
+!URxvt*letterSpace: -1
+
+!
+!! to match gnome-terminal "Linux console" scheme
+!! foreground/background
+!URxvt*background: #000000
+!URxvt*foreground: #ffffff
+!! black
+!URxvt.color0  : #000000
+!URxvt.color8  : #555555
+!! red
+!URxvt.color1  : #AA0000
+!URxvt.color9  : #FF5555
+!! green
+!URxvt.color2  : #00AA00
+!URxvt.color10 : #55FF55
+!! yellow
+!URxvt.color3  : #AA5500
+!URxvt.color11 : #FFFF55
+!! blue
+!URxvt.color4  : #0000AA
+!URxvt.color12 : #5555FF
+!! magenta
+!URxvt.color5  : #AA00AA
+!URxvt.color13 : #FF55FF
+!! cyan
+!URxvt.color6  : #00AAAA
+!URxvt.color14 : #55FFFF
+!! white
+!URxvt.color7  : #AAAAAA
+!URxvt.color15 : #FFFFFF
+!
+
+
+! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    pURple
+! color6    cyan
+! color7    white
+!
+!URxvt*color0:    #6c6c6c
+!URxvt*color1:    #e9897c
+!URxvt*color2:    #b6e77d
+!URxvt*color3:    #ecebbe
+!URxvt*color4:    #a9cdeb
+!URxvt*color5:    #ea96eb
+!URxvt*color6:    #c9caec
+!URxvt*color7:    #8e8e8e
+!
+!! Light
+!! color8    black
+!! color9    red
+!! color10    green
+!! color11    yellow
+!! color12    blue
+!! color13    pURple
+!! color14    cyan
+!! color15    white
+!
+!URxvt*color8:    #747474
+!URxvt*color9:    #f99286
+!URxvt*color10:    #c3f786
+!URxvt*color11:    #fcfbcc
+!URxvt*color12:    #b6defb
+!URxvt*color13:    #fba1fb
+!URxvt*color14:    #d7d9fc
+!URxvt*color15: #aeaeae
+!
+!
+
+
+!URxvt*title:             urxvt
+!Uurxvt*font:             xft:terminus:pixelsize=8
+!urxvt*boldFont:         xft:terminus:pixelsize=8
+!URxvt*termName:          rxvt
+!URxvt*background:        #171717
+!URxvt*foreground:        #7e8082
+!URxvt*secondaryscroll:   true
+!URxvt*matcher.button:    1
+!URxvt*cursorBlink:       true
+!URxvt*cursorUnderline:   true
+!URxvt*cursorColor:       #868887
+!URxvt*colorBD:           #b4927d
+!URxvt*colorUL:          #57956b
+!URxvt*internalBorder:    3
+!
+!URxvt.perl-ext-common:   default,clipboard,matcher
+!URxvt.transparent:       true
+!URxvt*allow_bold:        true
+!URxvt*depth:             24
+!URxvt*dynamicColors:     on
+!
+!Xft*dpi:                 96
+!Xft*antialias:           false
+!Xft*hinting:             full
+!
+!URxvt*mapAlert:          true
+!URxvt*visualBell:        true
+!URxvt*urgentOnBell:      true
+!URxvt*inheritPixmap:     true
+!!URxvt*tintColor:        #000000
+!URxvt*shading:           88
+!
+!!black
+!*color0:  #282828
+!*color8:  #494949
+!!red
+!*color1:  #b76969
+!*color9:  #b87e7e
+!!green
+!*color2:  #719d72
+!*color10: #839d84
+!!yellow
+!*color3:  #909858
+!*color11: #919864
+!!blue
+!*color4:  #68668f
+!*color12: #73718f
+!!magenta
+!*color5:  #966894
+!*color13: #987397
+!!cyan
+!*color6:  #688891
+!*color14: #758c93
+!!white
+!*color7:  #8e8e8e
+!*color15: #aeaeae
+
+
+
+! Run lower ccommand to get a nice commented Xresources file bellow. Pasted for doc.
+!TERM=rxvt-unicode-256color command man -Pcat urxvt | sed -n '/depth:
+!b/,/^BA/p'|sed '$d'|sed '/^       [a-z]/s/^ */^/g'|sed -e :a -e
+!'N;s/\n/@@/g;ta;P;D'|sed 's,\^\([^@]\+\)@*[\t ]*\([^\^]\+\),! \2\n!
+!URxvt*\1\n\n,g'|sed 's,@@\(  \+\),\n\1,g'|sed 's,@*$,,g'|sed '/^[^!]/d'|tr -d
+!"'\`" >> ~/Xresources
