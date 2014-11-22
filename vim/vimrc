@@ -1,0 +1,323 @@
+" Cheat sheats
+" http://nvie.com/posts/how-i-boosted-my-vim/
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-switched-to-textmate
+" http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/
+
+" Setup timeouts. Eliminate delay on ESC
+set timeoutlen=1000 ttimeoutlen=0
+
+
+" Setup Vundle
+" Relaunch vim, run :BundleInstall to install the “bundles” you
+" listed in .vimrc. When you want to update them, :BundleUpdate. To remove
+" a plugin, just delete its line in your .vimrc file then relaunch vim and
+" run:BundleClean to remove its folder inside ~/.vim/bundle/
+" Vundle follows Pathogen’s approach: putting plugins in their separate
+" directories. However, it also takes care of the git stuff for us too! Note that
+" by default it uses git clone, not git add submodule to add plugins. If you’re
+" using Windows, there’s Vundle for Windows too, though I’ve never tried it.
+set nocompatible
+filetype  off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle. Required!
+Plugin 'gmarik/Vundle.vim'
+
+"Handle My own Snippets on git
+Plugin 'ibabarovic/MySnippets'
+
+" My Plugins here: original repos on github
+"Fancy status lines
+"Plugin 'Lokaltog/powerline'
+"Plugin 'itchyny/lightline.vim'
+Plugin 'bling/vim-airline'
+
+" Moving around
+"Plugin 'andviro/flake8-vim'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'kien/ctrlp.vim'
+
+" programming support
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'kchmck/vim-coffee-script.git'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'mattn/gist-vim.git'
+"Plugin 'wincent/Command-T'
+Plugin 'scrooloose/syntastic'
+"Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'csv.vim'
+
+Plugin 'SirVer/ultisnips'
+
+" We need snippets for ultisnips engine
+Plugin 'honza/vim-snippets'
+
+"Plugin 'ervandew/supertab'
+Plugin 'c.vim'
+
+Plugin 'bash-support.vim'
+
+" Color bundles
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'Solarized'
+" TextMate colorschemes
+"Plugin 'squil/vim_colors.git'
+"shitload of colorschemes
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'nanotech/jellybeans.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+syntax on
+
+" Define dir for private snippets, needed for edit command bellow
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsEditSplit="vertical"
+noremap <c-\> :UltiSnipsEdit<CR>
+
+" Be brave and stop using the arrow keys
+"noremap <down> <Nop>
+"noremap <left> <Nop>
+"noremap <right> <Nop>
+"noremap <up> <Nop>
+
+"Setup airline
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+
+set encoding=utf-8
+
+"set scrolljump=5
+
+" Set nice colors:
+" Also check out Vivify, webbased colorscheme editor for vim
+" http://bytefluent.com/vivify/
+" Set molokai colorscheme
+" https://github.com/tomasr/molokai
+" If you prefer the scheme to match the original monokai background color, put
+" this in your .vimrc file: let g:molokai_original = 1
+" There is also an alternative sheme under development for color terminals
+" which attempts to bring the 256 color version as close as possible to the
+" the default (dark) GUI version. To access, add this to your .vimrc: let
+" g:rehash256 = 1
+" Note: when using the console version, add this command after enabling the
+" colorscheme in your .vimrc: set background=dark
+
+set t_Co=256
+let g:rehash256 = 1
+color molokai
+if has ('gui_running')
+        set background=dark
+endif
+
+" Powerline documentation https://powerline.readthedocs.org/en/latest/
+"set rtp+=/home/ivo/.vim/bundle/powerline/powerline/bindings/vim/
+
+
+" Formating
+set nowrap
+"set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=81
+
+" Make normal backspace
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+set hidden
+
+set tabstop=8
+set smarttab
+
+set laststatus=2   " Always show the statusline
+"set noshowmode " Hide the default mode text(-- INSERT -- below the statusline)
+
+set ignorecase
+set smartcase
+
+set incsearch
+
+"highlight matching braces
+set showmatch
+set mat=2
+
+set autoindent "Auto indent
+set smartindent "Smart indent
+
+set wildmenu
+set wildmode=list:longest
+
+"set list
+
+set ttyfast
+
+"set relativenumber
+
+set cursorline
+
+set nobackup
+set noswapfile
+
+
+"always set expandtab
+set expandtab
+
+
+" Add runtime path where my snippets are located. Needed for UltiSnips.
+set runtimepath+=~/.vim/MySnippets
+
+
+" Set all this only for python
+""This line will make Vim set out tab characters, trailing whitespace and
+"invisible spaces visually, and additionally use the # sign at the end of
+"lines to mark lines that extend off-screen. For more info, see :h listchars.
+augroup Python
+        au!
+        au filetype python set list
+        au filetype python set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
+        au filetype python set softtabstop=4
+        au filetype python set shiftwidth=4
+augroup END
+
+" C/CPP programming
+augroup C
+        au!
+        au filetype c,cpp set list
+        au filetype c,cpp set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
+        au filetype c,cpp set softtabstop=4
+        au filetype c,cpp set shiftwidth=4
+        " You can use `gq' command to format with these astyle settings
+        au BufNewFile,BufRead *.{cpp,c,h} set formatprg=astyle\ -A1s4SKpk3jxC80L
+augroup END
+
+"Easy navigating help files. Works with n/N too. Figure out why is g there?
+augroup helpnav
+        au!
+        au FileType help nnoremap <buffer> gn /<bar>[^<bar>]*<bar><cr>
+        au FileType help nnoremap <buffer> gN ?<bar>[^<bar>]*<bar><cr>
+augroup END
+
+" Return to last edit position when opening files (You want this!)
+augroup lastedit
+        au!
+        au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
+augroup END
+
+augroup Make
+        au!
+        au FileType make set noexpandtab
+        au filetype make set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
+augroup END
+
+"TODO RESEARCH into CSCOPE and find out how to only enable for C files
+"http://vim.wikia.com/wiki/Script:157"
+""By default, Cscope script adds cscope.out from Vim's current directory and
+""from $CSCOPE_DB. However, if you start Vim from say ~/proj/src/a/b/c/, while
+""cscope.out is at ~/proj/src/, that cscope.out won't be loaded automatically.
+""For ctags, there is a nice trick: with the command :set tags=tags;/ Vim will
+""look for tags file everywhere starting from the current directory up to the
+""root.  This tip provides the same "autoloading" functionality for Cscope. Just
+""add the following to your vimrc:
+""http://vim.wikia.com/wiki/Autoloading_Cscope_Database
+"function! LoadCscope()
+"  let db = findfile("cscope.out", ".;")
+"  if (!empty(db))
+"    let path = strpart(db, 0, match(db, "/cscope.out$"))
+"    set nocscopeverbose " suppress 'duplicate connection' error
+"    exe "cs add " . db . " " . path
+"    set cscopeverbose
+"  endif
+"endfunction
+"au BufEnter /* call LoadCscope()
+"
+"" Cscope mappings
+"" 's'   symbol: find all references to the token under cursor
+"nmap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"" 'g'   global: find global definition(s) of the token under cursor
+"nmap <leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+"" 'c'   calls:  find all calls to the function name under cursor
+"nmap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+"" 't'   text:   find all instances of the text under cursor
+"nmap <leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+"" 'e'   egrep:  egrep search for the word under cursor
+"nmap <leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+"" 'f'   file:   open the filename under cursor
+"nmap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+"" 'i'   includes: find files that include the filename under cursor
+"nmap <leader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+"" 'd'   called: find functions that function under cursor calls
+"nmap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+"
+
+
+"Gui stuff
+"set guifont="Inconsolata for Powerline"\ 10
+set guifont=Inconsolata\ 10
+"TODO find solution for man pages and python doc pages under gvim
+"runtime ftplugin/man.vim
+"if has("gui_running")
+"	nnoremap K :<C-U>exe "Man" v:count "<C-R><C-W>"<CR>
+"endif
+set guioptions-=m "remove menu bar"
+set guioptions-=T "remove toolbar"
+
+
+let mapleader = ','
+" source $MYVIMRC reloads the saved $MYVIMRC
+:nmap <Leader>s :source $MYVIMRC<CR>
+" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+:nmap <Leader>v :e $MYVIMRC<CR>
+
+" Different Mappings
+nmap G Gzz
+nmap n nzz
+nmap N Nzz
+nmap } }zz
+nmap { {zz
+
+""F2 key will pastetoggle so we can normally copy/paste with mouse
+nnoremap <F12> :set invpaste paste?<CR>
+set pastetoggle=<F12>
+set showmode
+
+
+" F8 key will toggle the Tagbar window.
+nmap <F8> :TagbarToggle<CR>
