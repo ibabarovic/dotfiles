@@ -1,0 +1,60 @@
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# You can set your favourite wallpaper here if you don't want
+# to do it from your style.
+#
+# fbsetbg -f /home/ivo/pictures/wallpaper.png
+#
+# This sets a black background
+
+#/usr/bin/fbsetroot -solid black
+
+
+# Other examples. Check man xset for details.
+#
+# Turn off beeps:
+# xset -b
+#
+# Increase the keyboard repeat-rate:
+# xset r rate 195 35
+#
+# Your own fonts-dir:
+# xset +fp "/home/ivo/.fonts"
+#
+# Your favourite mouse cursor:
+# xsetroot -cursor_name right_ptr
+#
+# Change your keymap:
+# xmodmap "/home/ivo/.Xmodmap"
+
+
+#gnome-settings-daemon  &
+
+# Star wicd network manager client
+#/usr/bin/wicd-client &
+
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+# unclutter -idle 2 &
+# wmnd &
+# wmsmixer -w &
+# idesk &
+
+#(sleep 3 && /usr/bin/nm-applet --sm-disable) &
+/usr/bin/nm-applet --sm-disable &
+#tint2 &
+ck-launch-session blueman-applet &
+#conky -q &
+volumeicon &
+#hsetroot -fill /usr/share/wallpapers/manjaro.jpg &
+
+
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+exec /usr/bin/fluxbox
+# or if you want to keep a log:
+# exec /usr/bin/fluxbox -log "/home/ivo/.fluxbox/log"

@@ -1,0 +1,121 @@
+! fluxbox-update_configs added '(workspace=[current])' to (Next|Prev)(Window|Group)
+! check lines marked by 'FBCV13' if they are correctly updated
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Mouse1 :MacroCmd {Focus} {Raise} {ActivateTab}
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Move1 :StartMoving
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+OnWindowBorder Move1 :StartMoving
+
+# click on the desktop to get menus
+OnDesktop Mouse1 :HideMenus
+OnDesktop Mouse2 :WorkspaceMenu
+OnDesktop Mouse3 :RootMenu
+
+# scroll on the toolbar to change workspaces
+OnToolbar Mouse4 :NextWorkspace
+OnToolbar Mouse5 :PrevWorkspace
+
+# alt + left/right click to move/resize a window
+OnWindow Mod1 Mouse1 :StartMoving
+OnWindow Mod1 Mouse3 :StartResizing
+
+# middle click a window's titlebar and drag to attach windows
+OnTitlebar Mouse2 :StartTabbing
+
+# double click on the titlebar to shade
+OnTitlebar Double Mouse1 :Shade
+
+# right click on the titlebar for a menu of options
+OnTitlebar Mouse3 :WindowMenu
+
+# alt-tab
+Mod1 Tab :NextWindow {groups} (workspace=[current])  !! FBCV13 !!
+Mod1 Shift Tab :PrevWindow {groups} (workspace=[current])  !! FBCV13 !!
+
+# cycle through tabs in the current window
+Mod4 Tab :NextTab
+Mod4 Shift Tab :PrevTab
+
+# open a dialog to run programs
+#Mod1 F2 :Exec fbrun
+
+# close the current window
+#Mod1 F4 :Close
+
+# Fluxbox stuff
+Control Mod4 Delete :Exit
+Control Mod4 r :Restart
+Control Mod4 c :Reconfigure 
+
+#Workspace commands
+Mod4 1 :Workspace 1
+Mod4 2 :Workspace 2
+Mod4 3 :Workspace 3
+Mod4 4 :Workspace 4
+Control Mod4 Right :NextWorkspace
+Control Mod4 Left :PrevWorkspace
+Control Mod4 s   :ShowDesktop
+
+#Window manipulation
+Mod1 Mod4 f :Fullscreen
+Mod1 Mod4 t :ToggleDecor
+Mod1 Mod4 k :KillWindow
+Mod1 Mod4 Up :MaximizeWindow 
+Mod1 Mod4 Down :MinimizeWindow 
+Mod4 Up :MaximizeVertical 
+Mod4 Right :MaximizeHorizontal
+Control Mod1 Up :ArrangeWindows
+
+Mod1 F9 :execCommand xclip -o | dpaste.py -n tiny | xclip -i
+Mod1 F10 :execCommand firefox -new-tab "`xclip -o`"
+Mod1 F11 :execCommand dict `xclip -o` | xmessage -nearmouse -geometry 600x300 -file -
+Mod1 F12 :execCommand firefox -new-tab "http://www.google.com/search?q=`xclip -o`"
+# Print screen
+Mod1 Print    :execCommand import -w root ~/`date +%Y%m%d%H%M`.jpg
+
+# App shortcuts
+#TODO adapt lower line for safe browsing in firefox
+#Mod4 s :MacroCmd {Workspace 4} {execCommand HOME=/home/surfer sudo -u surfer chromium-browser --proxy-server="127.0.0.1:8118"}
+#Mod4 w  :execCommand chromium-browser
+Mod4 f  :execCommand /usr/bin/firefox
+Mod4 m  :execCommand thunderbird
+Mod4 i  :execCommand xchat
+None F2  :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl ivo linode.asist.si
+None F3  :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl tiny tinypenguin.org
+Mod4 x  :execCommand urxvt -ls +vb -sl 2000 +sb -sh 90 #-fg white -bg black
+
+# Shell terminal mode (access various predefined ssh shels trough urxvt)
+Mod4 r Mod4 r :Keymode Shells
+Shells: None a :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl ivo linode.asist.si
+Shells: None i :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl tiny tinypenguin.org
+
+# ResizeMode (Window, Resize) - when Mod4 w Mod4 r is pressed, all keys except the arrow keys are disabled.  Press escape to exit this mode.
+Mod4 w Mod4 w               :KeyMode ResizeMode
+ResizeMode: None Up         :ResizeVertical -2
+ResizeMode: None Down       :ResizeVertical +2
+ResizeMode: None Left       :ResizeHorizontal -2
+ResizeMode: None Right      :ResizeHorizontal +2
+
+## MoveMode (Window, Move) - when Mod4 w Mod4 m is pressed, all keys except the arrow keys are disabled.  Press escape to exit this mode.
+Mod4 w Mod4 m               :KeyMode MoveMode
+MoveMode: None Up           :MoveUp 2
+MoveMode: None Down         :MoveDown 2
+MoveMode: None Left         :MoveLeft 2
+MoveMode: None Right        :MoveRight 2
+
+
+#Volume.  Will lower or raise volume by 5%.  The third key binding will toggle mute.
+None XF86AudioLowerVolume       :Exec amixer sset Master,0 5%-
+None XF86AudioRaiseVolume       :Exec amixer sset Master,0 5%+
+None XF86AudioMute              :Exec amixer sset Master,0 toggle
+
+# Old stuff for quick cheatsheet if needed
+#Mod1 F5  :execCommand chromium -no-remote -P default
+#Mod1 F7  :execCommand VirtualBox -startvm winxp
+#Mod1 F8  :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl tinyman thanatos.dreamhost.com screen -raAd
+#Mod1 F10 :execCommand chromium-browser "`xclip -o`"
+#Mod1 F11 :execCommand dict `xclip -o` | xmessage -nearmouse -geometry 600x300 -file -
+#Mod1 F12 :execCommand chromium-browser "http://www.google.com/search?q=`xclip -o`"
+#Mod4 t  :execCommand terminator

@@ -1,0 +1,94 @@
+[app] (name=fbrun)
+  [Position]	(CENTER)	{0 0}
+  [Layer]	{2}
+[end]
+[app] (name=Navigator) (class=Gran Paradiso) (role=browser)
+  [Dimensions]	{1281 1172}
+  [Position]	(UPPERLEFT)	{0 0}
+  [Close]	{yes}
+[end]
+[app] (name=aterm) (class=XTerm)
+  [Dimensions]	{634 391}
+[end]
+[app] (name=gecko) (class=Thunderbird-bin)
+  [Dimensions]	{1279 1172}
+  [Position]	(UPPERLEFT)	{-13 -5}
+  [Close]	{yes}
+[end]
+[app] (name=urxvt) (class=URxvt)
+  [Dimensions]	{730 385}
+[end]
+[app] (name=opera) (class=Opera) (role=opera-mainwindow#1)
+  [Dimensions]	{1278 1175}
+[end]
+[app] (name=chromium) (class=Chromium)
+  [Dimensions]	{1268 1174}
+  [Position]	(UPPERLEFT)	{2 1}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-2262-2970200536-1317121258)
+  [Dimensions]	{1016 963}
+[end]
+[app] (name=Mail) (class=Thunderbird) (role=3pane)
+  [Dimensions]	{1182 1172}
+  [Position]	(UPPERLEFT)	{2 2}
+[end]
+[app] (name=chromium-browser) (class=Chromium-browser) (role=browser)
+  [Dimensions]	{1182 1174}
+  [Position]	(UPPERLEFT)	{0 0}
+[end]
+[app] (name=evince) (class=Evince)
+  [Dimensions]	{1109 1162}
+  [Position]	(UPPERLEFT)	{69 6}
+[end]
+[app] (name=gvimdiff) (class=Gvimdiff) (role=vim-19798-3945309402-1369057795)
+  [Dimensions]	{1924 1228}
+  [Position]	(UPPERLEFT)	{0 0}
+[end]
+[app] (name=gvimdiff) (class=Gvimdiff) (role=vim-30943-2212442245-1369136657)
+  [Dimensions]	{1924 1228}
+  [Position]	(UPPERLEFT)	{-3 -28}
+[end]
+[app] (name=gvimdiff) (class=Gvimdiff) (role=vim-32097-487410346-1369221591)
+  [Dimensions]	{1924 1228}
+  [Position]	(UPPERLEFT)	{-3 -28}
+[end]
+[app] (name=gvimdiff) (class=Gvimdiff) (role=vim-9257-585637700-1369236392)
+  [Dimensions]	{1916 1160}
+  [Position]	(UPPERLEFT)	{-3 -28}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-7749-4190495865-1391160147)
+  [Dimensions]	{100% 104%}
+  [Position]	(UPPERLEFT)	{0% -2%}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-8372-2938851164-1391162361)
+  [Dimensions]	{100% 104%}
+  [Position]	(UPPERLEFT)	{0% -2%}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-8627-3626238876-1391162843)
+  [Dimensions]	{88% 98%}
+  [Position]	(UPPERLEFT)	{6% 1%}
+[end]
+[app] (name=sublime_text) (class=Sublime_text)
+  [Dimensions]	{43% 102%}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-10644-3747926080-1394257850)
+  [Dimensions]	{39% 33%}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-10734-1997646260-1394257932)
+  [Dimensions]	{39% 33%}
+[end]
+[app] (name=Navigator) (class=Firefox) (role=browser)
+  [Dimensions]	{62% 100%}
+  [Position]	(UPPERLEFT)	{0% 0%}
+[end]
+[app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)
+  [Dimensions]	{62% 100%}
+  [Position]	(UPPERLEFT)	{0% 2%}
+[end]
+[app] (name=xchat) (class=Xchat)
+  [Dimensions]	{61% 100%}
+  [Position]	(UPPERLEFT)	{0% 0%}
+[end]
+[app] (name=terminator) (class=Terminator)
+  [Dimensions]	{38% 32%}
+[end]
