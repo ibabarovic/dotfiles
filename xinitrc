@@ -20,8 +20,8 @@ xset r rate 200 44
 # exec wmaker
 # exec icewm
 # exec blackbox
-exec fluxbox
-#exec ck-launch-session startfluxbox
+#exec fluxbox
+exec ck-launch-session startfluxbox
 # exec openbox-session
 # exec cinnamon-session
 # ...or the Window Manager of your choice
