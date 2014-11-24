@@ -27,6 +27,11 @@ Plugin 'gmarik/Vundle.vim'
 "Handle My own Snippets on git
 Plugin 'ibabarovic/MySnippets'
 
+
+" Use autotagging, vim-misc is an api  for easytags
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+
 " My Plugins here: original repos on github
 "Fancy status lines
 "Plugin 'Lokaltog/powerline'
@@ -50,7 +55,9 @@ Plugin 'scrooloose/syntastic'
 
 Plugin 'csv.vim'
 
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
+"Use my forked version in case of collaboration
+Plugin 'ibabarovic/ultisnips'
 
 " We need snippets for ultisnips engine
 Plugin 'honza/vim-snippets'
