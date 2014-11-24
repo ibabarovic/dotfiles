@@ -7,7 +7,7 @@
   [Position]	(UPPERLEFT)	{0 0}
   [Close]	{yes}
 [end]
-[app] (name=aterm) (class=XTerm)
+[app] (name=urxvt) (class=XTerm)
   [Dimensions]	{634 391}
 [end]
 [app] (name=gecko) (class=Thunderbird-bin)

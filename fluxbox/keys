@@ -83,7 +83,7 @@ Mod1 Print    :execCommand import -w root ~/`date +%Y%m%d%H%M`.jpg
 Mod4 f  :execCommand /usr/bin/firefox
 Mod4 m  :execCommand thunderbird
 Mod4 i  :execCommand xchat
-rod4 x  :execCommand urxvt -ls +vb -sl 2000 +sb -sh 90 #-fg white -bg black
+Mod4 x  :execCommand urxvt -ls +vb -sl 2000 +sb -sh 90 #-fg white -bg black
 
 # Shell terminal mode (access various predefined ssh shels trough urxvt)
 Mod4 r Mod4 r :Keymode Shells
