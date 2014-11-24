@@ -25,7 +25,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "Handle My own Snippets on git
-Plugin 'ibabarovic/MySnippets'
+Plugin 'tinypenguin/MySnippets'
 
 
 " Use autotagging, vim-misc is an api  for easytags
@@ -57,7 +57,7 @@ Plugin 'csv.vim'
 
 "Plugin 'SirVer/ultisnips'
 "Use my forked version in case of collaboration
-Plugin 'ibabarovic/ultisnips'
+Plugin 'tinypenguin/ultisnips'
 
 " We need snippets for ultisnips engine
 Plugin 'honza/vim-snippets'
@@ -126,6 +126,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 
+" Setup easytags
+let g:easytags_async = 1
 
 set encoding=utf-8
 
