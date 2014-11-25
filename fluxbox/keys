@@ -49,6 +49,7 @@ Mod4 Shift Tab :PrevTab
 Control Mod4 Delete :Exit
 Control Mod4 r :Restart
 Control Mod4 c :Reconfigure 
+Control Mod4 l :exec slock
 
 #Workspace commands
 Mod4 1 :Workspace 1

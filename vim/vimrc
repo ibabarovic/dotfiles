@@ -24,9 +24,6 @@ call vundle#begin()
 " let Vundle manage Vundle. Required!
 Plugin 'gmarik/Vundle.vim'
 
-"Handle My own Snippets on git
-Plugin 'tinypenguin/MySnippets'
-
 
 " Use autotagging, vim-misc is an api  for easytags
 Plugin 'xolox/vim-easytags'
@@ -57,14 +54,17 @@ Plugin 'csv.vim'
 
 "Plugin 'SirVer/ultisnips'
 "Use my forked version in case of collaboration
-"Plugin 'tinypenguin/ultisnips'
-
+Plugin 'tinypenguin/ultisnips'
 " We need snippets for ultisnips engine
 Plugin 'honza/vim-snippets'
+"Handle My own Snippets on git
+Plugin 'tinypenguin/MySnippets'
 
 "Plugin 'ervandew/supertab'
 "Plugin 'c.vim'
 "Plugin 'bash-support.vim'
+
+Plugin 'commentary.vim'
 
 " Color bundles
 "Plugin 'altercation/vim-colors-solarized'
@@ -214,6 +214,7 @@ set wildmode=list:longest
 
 set ttyfast
 
+" this is slow!
 "set relativenumber
 
 set cursorline
@@ -221,6 +222,7 @@ set cursorline
 set nobackup
 set noswapfile
 
+set autoread
 
 "always set expandtab
 set expandtab

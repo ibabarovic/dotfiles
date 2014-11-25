@@ -29,8 +29,9 @@
   [Dimensions]	{1016 963}
 [end]
 [app] (name=Mail) (class=Thunderbird) (role=3pane)
-  [Dimensions]	{62% 100%}
+  [Dimensions]	{61% 100%}
   [Position]	(UPPERLEFT)	{0% 0%}
+  [Close]	{yes}
 [end]
 [app] (name=chromium-browser) (class=Chromium-browser) (role=browser)
   [Dimensions]	{1182 1174}
@@ -80,6 +81,7 @@
 [app] (name=Navigator) (class=Firefox) (role=browser)
   [Dimensions]	{62% 100%}
   [Position]	(UPPERLEFT)	{0% 0%}
+  [Close]	{yes}
 [end]
 [app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)
   [Dimensions]	{62% 100%}
