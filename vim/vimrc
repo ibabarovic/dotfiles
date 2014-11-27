@@ -147,6 +147,10 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " Setup easytags
 let g:easytags_async = 1
+" This is supposed to search for tag file up root dir
+set tags=tags;/
+" https://github.com/xolox/vim-easytags#the-geasytags_dynamic_files-option
+let g:easytags_dynamic_files = 1
 
 set encoding=utf-8
 
