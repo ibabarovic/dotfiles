@@ -24,12 +24,11 @@ call vundle#begin()
 " let Vundle manage Vundle. Required!
 Plugin 'gmarik/Vundle.vim'
 
-
 " Use autotagging, vim-misc is an api  for easytags
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
+" NOOOOOOOOOOOO DONT super slow plugin. It SUCKS!
+"Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-misc'
 
-" My Plugins here: original repos on github
 "Fancy status lines
 "Plugin 'Lokaltog/powerline'
 "Plugin 'itchyny/lightline.vim'
@@ -41,30 +40,23 @@ Plugin 'bling/vim-airline'
 "Plugin 'kien/ctrlp.vim'
 
 " programming support
-Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'commentary.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'tinypenguin/ultisnips' "Forked Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets' "We need snippets for ultisnips engine
+Plugin 'tinypenguin/MySnippets' "Handle My Snippets in sepparate git
+" TODO rewrite Plugin 'c.vim' to mysnippets
+" TODO rewrite Plugin 'bash-support.vim' to ultinips format
+" TODO Plugin 'tpope/dispatch
+"Plugin 'ervandew/supertab'
 "Plugin 'kchmck/vim-coffee-script.git'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'mattn/gist-vim.git'
 "Plugin 'wincent/Command-T'
-Plugin 'scrooloose/syntastic'
 "Plugin 'Valloric/YouCompleteMe'
-
 "Plugin 'csv.vim'
-
-"Plugin 'SirVer/ultisnips'
-"Use my forked version in case of collaboration
-Plugin 'tinypenguin/ultisnips'
-" We need snippets for ultisnips engine
-Plugin 'honza/vim-snippets'
-"Handle My own Snippets on git
-Plugin 'tinypenguin/MySnippets'
-
-"Plugin 'ervandew/supertab'
-"Plugin 'c.vim'
-"Plugin 'bash-support.vim'
-
-Plugin 'commentary.vim'
 
 " Color bundles
 "Plugin 'altercation/vim-colors-solarized'
@@ -75,6 +67,8 @@ Plugin 'Solarized'
 "shitload of colorschemes
 "Plugin 'flazz/vim-colorschemes'
 "Plugin 'nanotech/jellybeans.vim'
+
+Plugin 'unimpaired.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -93,6 +87,10 @@ filetype plugin indent on
 
 syntax on
 
+
+" Syntastic options
+let g:syntastic_always_populate_loc_list=1
+
 " Define dir for private snippets, needed for edit command bellow
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -103,11 +101,6 @@ let g:UltiSnipsListSnippets="<c-l>"
 let g:UltiSnipsEditSplit="vertical"
 noremap <c-\> :UltiSnipsEdit<CR>
 
-" Be brave and stop using the arrow keys
-"noremap <down> <Nop>
-"noremap <left> <Nop>
-"noremap <right> <Nop>
-"noremap <up> <Nop>
 
 "Setup airline
 let g:airline_theme = 'wombat'
@@ -144,13 +137,14 @@ let g:airline_symbols.whitespace = 'Ξ'
 "let g:airline#extensions#tabline#left_sep = '▶'
 "let g:airline#extensions#tabline#left_alt_sep = '▶'
 
+set tags=tags;/
 
 " Setup easytags
-let g:easytags_async = 1
+" NOOOOOOOOOOOO DONT super slow plugin. It SUCKS!
+"let g:easytags_async = 1
 " This is supposed to search for tag file up root dir
-set tags=tags;/
 " https://github.com/xolox/vim-easytags#the-geasytags_dynamic_files-option
-let g:easytags_dynamic_files = 1
+":let g:easytags_dynamic_files = 1
 
 set encoding=utf-8
 
@@ -251,8 +245,13 @@ augroup C
         au filetype c,cpp set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
         au filetype c,cpp set softtabstop=4
         au filetype c,cpp set shiftwidth=4
-        " You can use `gq' command to format with these astyle settings
-        au BufNewFile,BufRead *.{cpp,c,h} set formatprg=astyle\ -A1s4SKpk3jxC80L
+        " STYLE:You can use `gq' command to format with these astyle settings
+        " Uncrustify:
+        "au BufNewFile,BufRead *.{cpp,c,h} set formatprg=uncrustify\ -l\ CPP\ --no-backup\ 2>/dev/null
+        " ClangFormat: Create cfg template: clang-format-3.5 -style=llvm -dump-config
+        au BufNewFile,BufRead *.{cpp,c,h} set formatprg=clang-format-3.5 "http://clangformat.com/
+        " Astyle:
+        "au BufNewFile,BufRead *.{cpp,c,h} set formatprg=astyle\ -A1s4SKpk3jxC80Lz2
 augroup END
 
 "Easy navigating help files. Works with n/N too. Figure out why is g there?
@@ -336,12 +335,21 @@ let mapleader = ','
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 :nmap <Leader>v :e $MYVIMRC<CR>
 
+" close buffer
+nmap <Leader>x :bdelete<CR>
+
 " Different Mappings
 nmap G Gzz
 nmap n nzz
 nmap N Nzz
 nmap } }zz
 nmap { {zz
+
+" Be brave and stop using the arrow keys
+"noremap <down> <Nop>
+"noremap <left> <Nop>
+"noremap <right> <Nop>
+"noremap <up> <Nop>
 
 ""F2 key will pastetoggle so we can normally copy/paste with mouse
 nnoremap <F12> :set invpaste paste?<CR>
