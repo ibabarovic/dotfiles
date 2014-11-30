@@ -1,3 +1,6 @@
+" Open close folding <z-o>, <z-c>, <z-R>
+" TODO Setup C syntax style toggle switch betwenn different styles
+" google/linux kernel/
 " Cheatsheets {{{1 "
 " https://github.com/tpope/tpope/blob/master/.vimrc
 " http://nvie.com/posts/how-i-boosted-my-vim/
