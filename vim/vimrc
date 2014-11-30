@@ -1,12 +1,11 @@
-" Cheat sheats
+" Cheatsheets {{{1 "
+" https://github.com/tpope/tpope/blob/master/.vimrc
 " http://nvie.com/posts/how-i-boosted-my-vim/
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-switched-to-textmate
 " http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/
 
-" Setup timeouts. Eliminate delay on ESC
-set timeoutlen=1000 ttimeoutlen=0
 
-
+" Setup Vundle {{{1 "
 " Setup Vundle
 " Relaunch vim, run :BundleInstall to install the “bundles” you
 " listed in .vimrc. When you want to update them, :BundleUpdate. To remove
@@ -20,7 +19,7 @@ set nocompatible
 filetype  off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
+" Plugins {{{2 "
 " let Vundle manage Vundle. Required!
 Plugin 'gmarik/Vundle.vim'
 
@@ -50,12 +49,15 @@ Plugin 'tinypenguin/MySnippets' "Handle My Snippets in sepparate git
 " TODO rewrite Plugin 'c.vim' to mysnippets
 " TODO rewrite Plugin 'bash-support.vim' to ultinips format
 " TODO Plugin 'tpope/dispatch
+" TODO Plugin 'Valloric/YouCompleteMe' Supposedly it can replace syntastic.
+" Check it out. Also check out what compiler messages it produces gcc/clang/...
+" http://stackoverflow.com/questions/24500281/youcompleteme-and-syntastic-compatibility
+" IMPORTANT: there's also complete option in vim. Research!
 "Plugin 'ervandew/supertab'
 "Plugin 'kchmck/vim-coffee-script.git'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'mattn/gist-vim.git'
 "Plugin 'wincent/Command-T'
-"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'csv.vim'
 
 " Color bundles
@@ -68,7 +70,8 @@ Plugin 'Solarized'
 "Plugin 'flazz/vim-colorschemes'
 "Plugin 'nanotech/jellybeans.vim'
 
-Plugin 'unimpaired.vim'
+Plugin 'impaired.vim'
+" 2}}} "
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -84,77 +87,41 @@ filetype plugin indent on
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
+" 1}}} "
+" Commands {{{1 "
 syntax on
 
+" Section: Options {{{1 "
+" Setup timeouts. Eliminate delay on ESC
+set timeoutlen=1000 ttimeoutlen=0
+set fileformats=unix,dos,mac
 
-" Syntastic options
-let g:syntastic_always_populate_loc_list=1
-
-" Define dir for private snippets, needed for edit command bellow
-let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<c-l>"
-let g:UltiSnipsEditSplit="vertical"
-noremap <c-\> :UltiSnipsEdit<CR>
-
-
-"Setup airline
-let g:airline_theme = 'wombat'
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-
-"" powerline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-""let g:airline_symbols.linenr = ''
-"let g:airline#extensions#tabline#left_sep = ''
-"let g:airline#extensions#tabline#left_alt_sep = ''
-
-" Unicode symbols
-"let g:airline_left_ep = '▶'
-"let g:airline_left_alt_sep = '»'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-"let g:airline#extensions#tabline#left_sep = '▶'
-"let g:airline#extensions#tabline#left_alt_sep = '▶'
-
-set tags=tags;/
-
-" Setup easytags
-" NOOOOOOOOOOOO DONT super slow plugin. It SUCKS!
-"let g:easytags_async = 1
-" This is supposed to search for tag file up root dir
-" https://github.com/xolox/vim-easytags#the-geasytags_dynamic_files-option
-":let g:easytags_dynamic_files = 1
+" This should expand snippet with tab but it doesn't YCM and Ultisnips
+" still aren't compatible plugins. Shame. I might just drop the tab key expansion.
+" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-15722669
+" function! g:UltiSnips_Complete()
+"     call UltiSnips_ExpandSnippet()
+"     if g:ulti_expand_res == 0
+"         if pumvisible()
+"             return "\<C-n>"
+"         else
+"             call UltiSnips_JumpForwards()
+"             if g:ulti_jump_forwards_res == 0
+"                return "\<TAB>"
+"             endif
+"         endif
+"     endif
+"     return ""
+" endfunction
+" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 set encoding=utf-8
 
 "set scrolljump=5
 
 " Set nice colors:
-" Also check out Vivify, webbased colorscheme editor for vim
-" http://bytefluent.com/vivify/
-" Set molokai colorscheme
-" https://github.com/tomasr/molokai
+" Check webbased colorscheme editor for vim " http://bytefluent.com/vivify/
+" Set molokai colorscheme  https://github.com/tomasr/molokai
 " If you prefer the scheme to match the original monokai background color, put
 " this in your .vimrc file: let g:molokai_original = 1
 " There is also an alternative sheme under development for color terminals
@@ -163,7 +130,6 @@ set encoding=utf-8
 " g:rehash256 = 1
 " Note: when using the console version, add this command after enabling the
 " colorscheme in your .vimrc: set background=dark
-
 set t_Co=256
 let g:rehash256 = 1
 color molokai
@@ -171,9 +137,14 @@ if has ('gui_running')
         set background=dark
 endif
 
-" Powerline documentation https://powerline.readthedocs.org/en/latest/
-"set rtp+=/home/ivo/.vim/bundle/powerline/powerline/bindings/vim/
-
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo')
+        silent !mkdir ~/.vim/backups > /dev/null 2>&1
+        set undodir=~/.vim/backups
+        set undofile
+endif
 
 " Formating
 set nowrap
@@ -206,8 +177,14 @@ set autoindent "Auto indent
 set smartindent "Smart indent
 
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full,full
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 
+set foldmethod=marker
 "set list
 
 set ttyfast
@@ -225,7 +202,81 @@ set autoread
 "always set expandtab
 set expandtab
 
+" Search for tags file up root till $HOME
+set tags=tags;/$HOME
 
+"Gui stuff
+"set guifont="Inconsolata for Powerline"\ 10
+set guifont=Inconsolata\ 10
+"TODO find solution for man pages and python doc pages under gvim
+"runtime ftplugin/man.vim
+"if has("gui_running")
+"	nnoremap K :<C-U>exe "Man" v:count "<C-R><C-W>"<CR>
+"endif
+set guioptions-=m "remove menu bar"
+set guioptions-=T "remove toolbar"
+
+" End of Options}}} "
+" Section: Variables {{{1 "
+" Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_jump=2
+let g:syntastic_auto_loc_list=2
+
+" Define dir for private snippets, needed for edit command bellow
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
+" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsEditSplit="vertical"
+noremap <c-\> :UltiSnipsEdit<CR>
+
+"Setup airline
+let g:airline_theme = 'wombat'
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+"" powerline symbols
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+""let g:airline_symbols.linenr = ''
+"let g:airline#extensions#tabline#left_sep = ''
+"let g:airline#extensions#tabline#left_alt_sep = ''
+" Unicode symbols
+"let g:airline_left_ep = '▶'
+"let g:airline_left_alt_sep = '»'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline#extensions#tabline#left_sep = '▶'
+"let g:airline#extensions#tabline#left_alt_sep = '▶'
+
+" Setup easytags
+" NOOOOOOOOOOOO DONT super slow plugin. It SUCKS!
+"let g:easytags_async = 1
+" This is supposed to search for tag file up root dir
+" https://github.com/xolox/vim-easytags#the-geasytags_dynamic_files-option
+":let g:easytags_dynamic_files = 1
+
+let g:mapleader = ','
+" End of Variable definitions}}} "
+" Autocommands {{{1 "
 " Set all this only for python
 ""This line will make Vim set out tab characters, trailing whitespace and
 "invisible spaces visually, and additionally use the # sign at the end of
@@ -238,6 +289,26 @@ augroup Python
         au filetype python set shiftwidth=4
 augroup END
 
+"TODO RESEARCH into CSCOPE and find out how to only enable for C files
+"http://vim.wikia.com/wiki/Script:157"
+""By default, Cscope script adds cscope.out from Vim's current directory and
+""from $CSCOPE_DB. However, if you start Vim from say ~/proj/src/a/b/c/, while
+""cscope.out is at ~/proj/src/, that cscope.out won't be loaded automatically.
+""For ctags, there is a nice trick: with the command :set tags=tags;/ Vim will
+""look for tags file everywhere starting from the current directory up to the
+""root.  This tip provides the same "autoloading" functionality for Cscope. Just
+""add the following to your vimrc:
+""http://vim.wikia.com/wiki/Autoloading_Cscope_Database
+function! LoadCscope()
+  let db = findfile("cscope.out", ".;")
+  if (!empty(db))
+    let path = strpart(db, 0, match(db, "/cscope.out$"))
+    set nocscopeverbose " suppress 'duplicate connection' error
+    exe "cs add " . db . " " . path
+    set cscopeverbose
+  endif
+endfunction
+
 " C/CPP programming
 augroup C
         au!
@@ -245,12 +316,13 @@ augroup C
         au filetype c,cpp set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
         au filetype c,cpp set softtabstop=4
         au filetype c,cpp set shiftwidth=4
+        au BufEnter *.{cpp,c,h} call LoadCscope()
         " STYLE:You can use `gq' command to format with these astyle settings
-        " Uncrustify:
+        "       Uncrustify:
         "au BufNewFile,BufRead *.{cpp,c,h} set formatprg=uncrustify\ -l\ CPP\ --no-backup\ 2>/dev/null
-        " ClangFormat: Create cfg template: clang-format-3.5 -style=llvm -dump-config
+        "       ClangFormat: Create cfg template: clang-format-3.5 -style=llvm -dump-config
         au BufNewFile,BufRead *.{cpp,c,h} set formatprg=clang-format-3.5 "http://clangformat.com/
-        " Astyle:
+        "       Astyle:
         "au BufNewFile,BufRead *.{cpp,c,h} set formatprg=astyle\ -A1s4SKpk3jxC80Lz2
 augroup END
 
@@ -276,64 +348,11 @@ augroup Make
         au filetype make set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
 augroup END
 
-"TODO RESEARCH into CSCOPE and find out how to only enable for C files
-"http://vim.wikia.com/wiki/Script:157"
-""By default, Cscope script adds cscope.out from Vim's current directory and
-""from $CSCOPE_DB. However, if you start Vim from say ~/proj/src/a/b/c/, while
-""cscope.out is at ~/proj/src/, that cscope.out won't be loaded automatically.
-""For ctags, there is a nice trick: with the command :set tags=tags;/ Vim will
-""look for tags file everywhere starting from the current directory up to the
-""root.  This tip provides the same "autoloading" functionality for Cscope. Just
-""add the following to your vimrc:
-""http://vim.wikia.com/wiki/Autoloading_Cscope_Database
-"function! LoadCscope()
-"  let db = findfile("cscope.out", ".;")
-"  if (!empty(db))
-"    let path = strpart(db, 0, match(db, "/cscope.out$"))
-"    set nocscopeverbose " suppress 'duplicate connection' error
-"    exe "cs add " . db . " " . path
-"    set cscopeverbose
-"  endif
-"endfunction
-"au BufEnter /* call LoadCscope()
-"
-"" Cscope mappings
-"" 's'   symbol: find all references to the token under cursor
-"nmap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-"" 'g'   global: find global definition(s) of the token under cursor
-"nmap <leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-"" 'c'   calls:  find all calls to the function name under cursor
-"nmap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-"" 't'   text:   find all instances of the text under cursor
-"nmap <leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-"" 'e'   egrep:  egrep search for the word under cursor
-"nmap <leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-"" 'f'   file:   open the filename under cursor
-"nmap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-"" 'i'   includes: find files that include the filename under cursor
-"nmap <leader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-"" 'd'   called: find functions that function under cursor calls
-"nmap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-"
-
-
-"Gui stuff
-"set guifont="Inconsolata for Powerline"\ 10
-set guifont=Inconsolata\ 10
-"TODO find solution for man pages and python doc pages under gvim
-"runtime ftplugin/man.vim
-"if has("gui_running")
-"	nnoremap K :<C-U>exe "Man" v:count "<C-R><C-W>"<CR>
-"endif
-set guioptions-=m "remove menu bar"
-set guioptions-=T "remove toolbar"
-
-
-let mapleader = ','
+" MAppings {{{1 "
 " source $MYVIMRC reloads the saved $MYVIMRC
-:nmap <Leader>s :source $MYVIMRC<CR>
+:nmap <Leader>vs :source $MYVIMRC<CR>
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-:nmap <Leader>v :e $MYVIMRC<CR>
+:nmap <Leader>ve :edit $MYVIMRC<CR>
 
 " close buffer
 nmap <Leader>x :bdelete<CR>
@@ -345,6 +364,33 @@ nmap N Nzz
 nmap } }zz
 nmap { {zz
 
+"" Cscope mappings
+" 's'   symbol: find all references to the token under cursor
+nmap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+" 'g'   global: find global definition(s) of the token under cursor
+nmap <leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+" 'c'   calls:  find all calls to the function name under cursor
+nmap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+" 't'   text:   find all instances of the text under cursor
+nmap <leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+" 'e'   egrep:  egrep search for the word under cursor
+nmap <leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+" 'f'   file:   open the filename under cursor
+nmap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+" 'i'   includes: find files that include the filename under cursor
+nmap <leader>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
+" 'd'   called: find functions that function under cursor calls
+nmap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-w> <C-w>w
+
+
 " Be brave and stop using the arrow keys
 "noremap <down> <Nop>
 "noremap <left> <Nop>
@@ -353,7 +399,7 @@ nmap { {zz
 
 ""F2 key will pastetoggle so we can normally copy/paste with mouse
 nnoremap <F12> :set invpaste paste?<CR>
-set pastetoggle=<F12>
+"set pastetoggle=<F12>
 set showmode
 
 
