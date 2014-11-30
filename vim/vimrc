@@ -209,8 +209,9 @@ set expandtab
 set tags=tags;/$HOME
 
 "Gui stuff
-"set guifont="Inconsolata for Powerline"\ 10
-set guifont=Inconsolata\ 10
+set guifont="Inconsolata for Powerline"\ 10
+"set guifont=Inconsolata\ 10
+"set guifont=Inconsolata\ 12
 "TODO find solution for man pages and python doc pages under gvim
 "runtime ftplugin/man.vim
 "if has("gui_running")
@@ -226,6 +227,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_jump=2
 let g:syntastic_auto_loc_list=2
+let g:syntastic_c_remove_include_errors=1
 
 " Define dir for private snippets, needed for edit command bellow
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
@@ -316,7 +318,7 @@ endfunction
 augroup C
         au!
         au filetype c,cpp set list
-        au filetype c,cpp set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
+        au filetype c,cpp set listchars=tab:-,trail:.,extends:#,nbsp:.,eol:¶
         au filetype c,cpp set softtabstop=4
         au filetype c,cpp set shiftwidth=4
         au BufEnter *.{cpp,c,h} call LoadCscope()
