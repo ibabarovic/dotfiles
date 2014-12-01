@@ -78,7 +78,6 @@ Plugin 'impaired.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
-filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -92,6 +91,8 @@ filetype plugin indent on
 " Put your non-Plugin stuff after this line
 " 1}}} "
 " Commands {{{1 "
+
+filetype plugin indent on
 syntax on
 
 " Section: Options {{{1 "
@@ -133,7 +134,7 @@ set encoding=utf-8
 " g:rehash256 = 1
 " Note: when using the console version, add this command after enabling the
 " colorscheme in your .vimrc: set background=dark
-set t_Co=256
+"set t_Co=256
 let g:rehash256 = 1
 color molokai
 if has ('gui_running')
@@ -177,7 +178,6 @@ set showmatch
 set mat=2
 
 set autoindent "Auto indent
-set smartindent "Smart indent
 
 set wildmenu
 set wildmode=list:longest,full,full
@@ -221,6 +221,9 @@ set guioptions-=m "remove menu bar"
 set guioptions-=T "remove toolbar"
 set guioptions-=i "dont use vim icon
 set guioptions-=r "remove right hand scrollbar
+
+" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+set cscopetag
 
 " End of Options}}} "
 " Section: Variables {{{1 "
@@ -366,7 +369,6 @@ augroup END
 nmap <Leader>x :bdelete<CR>
 
 " Different Mappings
-nmap G Gzz
 nmap n nzz
 nmap N Nzz
 nmap } }zz
