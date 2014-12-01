@@ -7,4 +7,7 @@ ln -s ~/.dotfiles/fluxbox ~/.fluxbox
 ln -s ~/.dotfiles/fonts ~/.fonts
 ln -s ~/.dotfiles/conkyrc ~/.conkyrc
 ln -s ~/.dotfiles/clang-format.current ~/.dotfiles/clang-format
-ln -s ~/.dotfiles/clang-format ~/clang-format
+ln -s ~/.dotfiles/clang-format ~/.clang-format
+ln -s ~/.dotfiles/bashrc ~/.bashrc
+ln -s ~/.dotfiles/profile ~/.profile
+

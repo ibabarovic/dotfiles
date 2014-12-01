@@ -39,6 +39,7 @@ URxvt*boldFont:          xft:Inconsolata for Powerline:pixelsize=14:bold
 !URxvt*boldFont:          xft:terminus:pixelsize=8
 !URxvt*termName:           rxvt-unicode
 URxvt*termName:           rxvt-256color
+
 URxvt*foreground: #f2f2f2
 URxvt*background: #101010
 URxvt*allow_bold:        true
@@ -47,6 +48,7 @@ URxvt*colorUL:          #c0c445
 URxvt*internalBorder:    1
 URxvt.transparent:       false
 URxvt*dynamicColors:     on
+
 !URxvt*letterSpace: -1
 
 !

@@ -225,11 +225,12 @@ set guioptions-=r "remove right hand scrollbar
 " End of Options}}} "
 " Section: Variables {{{1 "
 " Syntastic
-let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_open=1 "This takes to long
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_jump=2
 let g:syntastic_auto_loc_list=2
-let g:syntastic_c_remove_include_errors=1
+" let g:syntastic_c_no_include_search=1 TODO This doesn't work yet
+" let g:syntastic_c_remove_include_errors = 1
 
 " Define dir for private snippets, needed for edit command bellow
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
