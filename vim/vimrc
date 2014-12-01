@@ -372,7 +372,8 @@ nmap N Nzz
 nmap } }zz
 nmap { {zz
 
-"" Cscope mappings
+" Cscope mappings TODO: Think about importing this:
+" http://cscope.sourceforge.net/cscope_maps.vim
 " 's'   symbol: find all references to the token under cursor
 nmap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 " 'g'   global: find global definition(s) of the token under cursor
@@ -386,7 +387,7 @@ nmap <leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 " 'f'   file:   open the filename under cursor
 nmap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 " 'i'   includes: find files that include the filename under cursor
-nmap <leader>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
+nmap <leader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 " 'd'   called: find functions that function under cursor calls
 nmap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
