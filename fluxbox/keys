@@ -72,25 +72,26 @@ Mod4 Left :MaximizeHorizontal
 Control Mod1 Up :ArrangeWindows
 
 Mod1 F9 :execCommand xclip -o | dpaste.py -n tiny | xclip -i
-Mod1 F10 :execCommand firefox -new-tab "`xclip -o`"
+Mod1 F10 :execCommand chromium-browser "`xclip -o`"
+#Mod1 F10 :execCommand firefox -new-tab "`xclip -o`"
 Mod1 F11 :execCommand dict `xclip -o` | xmessage -nearmouse -geometry 600x300 -file -
-Mod1 F12 :execCommand firefox -new-tab "http://www.google.com/search?q=`xclip -o`"
+Mod1 F12 :execCommand chromium-browser "http://www.google.com/search?q=`xclip -o`"
+#Mod1 F12 :execCommand firefox -new-tab "http://www.google.com/search?q=`xclip -o`"
 # Print screen
 Mod1 Print    :execCommand import -w root ~/`date +%Y%m%d%H%M`.jpg
 
 # App shortcuts
-#TODO adapt lower line for safe browsing in firefox
+#TODO fix safe browsing in chromium, doesn't work anymore
 #Mod4 s :MacroCmd {Workspace 4} {execCommand HOME=/home/surfer sudo -u surfer chromium-browser --proxy-server="127.0.0.1:8118"}
-#Mod4 w  :execCommand chromium-browser
+Mod4 w  :execCommand chromium-browser
 Mod4 f  :execCommand /usr/bin/firefox
 Mod4 m  :execCommand thunderbird
 Mod4 i  :execCommand xchat
 Mod4 x  :execCommand urxvt -ls +vb -sl 2000 +sb -sh 90 #-fg white -bg black
 
 # Shell terminal mode (access various predefined ssh shels trough urxvt)
-Mod4 r Mod4 r :Keymode Shells
-Shells: None a :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl ivo linode.asist.si
-Shells: None i :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl tiny tinypenguin.org
+Mod4 r Mod4 a :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl ivo linode.asist.si
+Mod4 r Mod4 i :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl tiny tinypenguin.org
 
 # ResizeMode (Window, Resize) - when Mod4 w Mod4 r is pressed, all keys except the arrow keys are disabled.  Press escape to exit this mode.
 Mod4 w Mod4 w               :KeyMode ResizeMode
