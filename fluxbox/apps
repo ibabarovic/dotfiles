@@ -79,8 +79,8 @@
   [Dimensions]	{39% 33%}
 [end]
 [app] (name=Navigator) (class=Firefox) (role=browser)
-  [Dimensions]	{45% 59%}
-  [Position]	(UPPERLEFT)	{2% 39%}
+  [Dimensions]	{61% 100%}
+  [Position]	(UPPERLEFT)	{0% 0%}
   [Close]	{yes}
 [end]
 [app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)

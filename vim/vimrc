@@ -238,6 +238,7 @@ let g:syntastic_auto_loc_list=2
 " Define dir for private snippets, needed for edit command bellow
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/MySnippets/UltiSnips"
 " let g:UltiSnipsExpandTrigger="<tab>"
+" TODO Fix lower mappings, they colide with windeow movement mappings
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"

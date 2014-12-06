@@ -68,6 +68,7 @@ Mod1 Mod4 Up :MaximizeWindow
 Mod1 Mod4 Down :MinimizeWindow 
 Mod4 Up :MaximizeVertical 
 Mod4 Right :MaximizeHorizontal
+Mod4 Left :MaximizeHorizontal
 Control Mod1 Up :ArrangeWindows
 
 Mod1 F9 :execCommand xclip -o | dpaste.py -n tiny | xclip -i
