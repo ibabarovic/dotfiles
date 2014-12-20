@@ -11,4 +11,5 @@ ln -s ~/.dotfiles/clang-format.current ~/.dotfiles/clang-format
 ln -s ~/.dotfiles/clang-format ~/.clang-format
 ln -s ~/.dotfiles/bashrc ~/.bashrc
 ln -s ~/.dotfiles/profile ~/.profile
+ln -s ~/.dotfiles/jshintrc ~/.jshintrc
 

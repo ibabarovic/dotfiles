@@ -396,11 +396,11 @@ nmap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
 " Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-w> <C-w>w
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-l> <C-w>l
+"nnoremap <C-w> <C-w>w
 
 
 " Be brave and stop using the arrow keys

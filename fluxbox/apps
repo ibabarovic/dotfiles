@@ -84,8 +84,9 @@
   [Close]	{yes}
 [end]
 [app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)
-  [Dimensions]	{62% 100%}
-  [Position]	(UPPERLEFT)	{0% 2%}
+  [Dimensions]	{61% 99%}
+  [Position]	(UPPERLEFT)	{0% 0%}
+  [Close]	{yes}
 [end]
 [app] (name=xchat) (class=Xchat)
   [Dimensions]	{61% 100%}
