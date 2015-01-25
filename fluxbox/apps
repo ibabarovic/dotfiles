@@ -84,7 +84,7 @@
   [Close]	{yes}
 [end]
 [app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)
-  [Dimensions]	{61% 99%}
+  [Dimensions]	{61% 100%}
   [Position]	(UPPERLEFT)	{0% 0%}
   [Close]	{yes}
 [end]
