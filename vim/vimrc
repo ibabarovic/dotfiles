@@ -1,14 +1,11 @@
-" Open close folding <z-o>, <z-c>, <z-R>
-" TODO Setup C syntax style toggle switch betwenn different styles
-" google/linux kernel/
-" Cheatsheets {{{1 "
+" SECTION:Cheatsheets
 " https://github.com/tpope/tpope/blob/master/.vimrc
 " http://nvie.com/posts/how-i-boosted-my-vim/
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/#why-i-switched-to-textmate
 " http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/
 
 
-" Setup Vundle {{{1 "
+" SECTION: Setup Vundle
 " Setup Vundle
 " Relaunch vim, run :BundleInstall to install the “bundles” you
 " listed in .vimrc. When you want to update them, :BundleUpdate. To remove
@@ -23,10 +20,9 @@ filetype  off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins {{{1 "
+" SECTION:Plugins
 " let Vundle manage Vundle. Required!
 Plugin 'gmarik/Vundle.vim'
-
 " Use autotagging, vim-misc is an api  for easytags
 " NOOOOOOOOOOOO DONT super slow plugin. It SUCKS!
 "Plugin 'xolox/vim-easytags'
@@ -94,14 +90,12 @@ call vundle#end()
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-" 1}}} "
 
-" Commands {{{1 "
-
+" SECTION: Commands
 filetype plugin indent on
 syntax on
 
-" Section: Options {{{1 "
+" SECTION: Options
 " Setup timeouts. Eliminate delay on ESC
 set timeoutlen=1000 ttimeoutlen=0
 set fileformats=unix,dos,mac
@@ -170,7 +164,7 @@ set whichwrap+=<,>,h,l
 
 set hidden
 
-set tabstop=8
+set tabstop=4
 set smarttab
 
 set laststatus=2   " Always show the statusline
@@ -232,10 +226,9 @@ set guioptions-=r "remove right hand scrollbar
 set showmode
 " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
 set cscopetag
-" End of Options}}} "
 
 
-" Section: Variables {{{1 "
+" SECTION: Variables
 " Syntastic
 " let g:syntastic_check_on_open=1 "This takes to long
 let g:syntastic_always_populate_loc_list=1
@@ -297,7 +290,8 @@ noremap <c-\> :UltiSnipsEdit<CR>
 
 let g:mapleader = ','
 " End of Variable definitions}}} "
-" Autocommands {{{1 "
+
+" SECTION:Autocommands
 " Set all this only for python
 ""This line will make Vim set out tab characters, trailing whitespace and
 "invisible spaces visually, and additionally use the # sign at the end of
@@ -309,6 +303,22 @@ augroup Python
         au filetype python set softtabstop=4
         au filetype python set shiftwidth=4
 augroup END
+
+augroup html
+        au!
+        "au filetype html set list
+        au filetype html set softtabstop=4
+        au filetype html set shiftwidth=4
+augroup END
+
+augroup Shell
+        au!
+        au filetype sh set list
+        au filetype sh set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
+        au filetype sh set softtabstop=4
+        au filetype sh set shiftwidth=4
+augroup END
+
 
 "TODO RESEARCH into CSCOPE and find out how to only enable for C files
 "http://vim.wikia.com/wiki/Script:157"
@@ -331,10 +341,12 @@ function! LoadCscope()
 endfunction
 
 " C/CPP programming
+" TODO Setup C syntax style toggle switch betwenn different styles
+" google/linux kernel/
 augroup C
         au!
         au filetype c,cpp set list
-        au filetype c,cpp set listchars=tab:-,trail:.,extends:#,nbsp:.,eol:¶
+        au filetype c,cpp set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:¶
         au filetype c,cpp set softtabstop=4
         au filetype c,cpp set shiftwidth=4
         au BufEnter *.{cpp,c,h} call LoadCscope()
@@ -369,7 +381,7 @@ augroup Make
         au filetype make set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
 augroup END
 
-" MAppings {{{1 "
+" SECTION: MAppings
 " source $MYVIMRC reloads the saved $MYVIMRC
 :nmap <Leader>vs :source $MYVIMRC<CR>
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
