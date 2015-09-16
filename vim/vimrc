@@ -39,7 +39,7 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'kien/ctrlp.vim'
 
 " programming support
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'commentary.vim'
 Plugin 'majutsushi/tagbar'
@@ -346,7 +346,8 @@ endfunction
 augroup C
         au!
         au filetype c,cpp set list
-        au filetype c,cpp set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:¶
+        au filetype c,cpp set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:.
+        "au filetype c,cpp set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:¶
         au filetype c,cpp set softtabstop=4
         au filetype c,cpp set shiftwidth=4
         au BufEnter *.{cpp,c,h} call LoadCscope()

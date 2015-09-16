@@ -88,6 +88,7 @@ Mod4 f  :execCommand /usr/bin/firefox
 Mod4 m  :execCommand thunderbird
 Mod4 i  :execCommand xchat
 Mod4 x  :execCommand urxvt -ls +vb -sl 2000 +sb -sh 90 #-fg white -bg black
+Mod4 l  :execCommand galculator
 
 # Shell terminal mode (access various predefined ssh shels trough urxvt)
 Mod4 r Mod4 a :execCommand urxvt -ls +vb -sl 2000 -tr +sb -sh 90 -fg white -bg black -e ssh -tl ivo linode.asist.si
